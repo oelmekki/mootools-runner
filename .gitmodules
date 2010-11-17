@@ -7,3 +7,9 @@
 [submodule "Jasmine-Node"]
 	path = Jasmine-Node
 	url = git@github.com:oelmekki/jasmine-node.git
+[submodule "JsDOM"]
+	path = JsDOM
+	url = git://github.com/oelmekki/jsdom.git
+[submodule "XMLHttpRequest"]
+	path = XMLHttpRequest
+	url = https://github.com/driverdan/node-XMLHttpRequest.git

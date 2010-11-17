@@ -3,9 +3,23 @@
 
 var puts = require('sys').puts;
 
+var jsdom = require("./JsDOM/lib/jsdom");
+window = jsdom.jsdom('<html><head></head><body><div id="foo">mock</div></body></html>').createWindow();
+jsdom.mootoolify(window);
+
+
+for (var k in window){
+	global[k] = window[k];
+}
+
+global.window = global;
+global.XMLHttpRequest = require('./XMLHttpRequest/XMLHttpRequest').XMLHttpRequest;
+
 
 var options = require('./Helpers/RunnerOptions').parseOptions(process.argv[2]);
 if (!options) return;
+
+require('../../Source/mootools-core.js').apply(global);
 
 // Initialize
 var loader = require('./Helpers/Loader');
@@ -59,15 +73,9 @@ for(var key in jasmine)
 
 require('./Helpers/JSSpecToJasmine');
 
-if ( ! options.reporter ){
-  options.reporter = 'console';
-}
-
-var reporter    = require('jasmine/' + options.reporter + '_reporter').Reporter;
-reporter.done   = function(runner, log){
+var reporter = require('reporters/' + (options.reporter || 'console')).Reporter;
+reporter.done = function(runner, log){
   process.exit(runner.results().failedCount);
 };
 
-jasmine.runSpecs(specs, reporter );
-
-
+jasmine.runSpecs(specs, reporter);
