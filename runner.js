@@ -19,8 +19,9 @@ global.XMLHttpRequest = require('./XMLHttpRequest/XMLHttpRequest').XMLHttpReques
 var options = require('./Helpers/RunnerOptions').parseOptions(process.argv[2]);
 if (!options) return;
 
-require('../../Source/mootools-core.js').apply(global);
-require('../../Source/mootools-more.js').apply(global);
+require('./Helpers/MockLocation');
+require('../../Source/mootools-core').apply(global);
+require('../../Source/mootools-more').apply(global);
 
 // Initialize
 var loader = require('./Helpers/Loader');
