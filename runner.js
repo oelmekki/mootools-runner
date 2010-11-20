@@ -20,8 +20,8 @@ var options = require('./Helpers/RunnerOptions').parseOptions(process.argv[2]);
 if (!options) return;
 
 require('./Helpers/MockLocation');
-require('../../Source/mootools-core').apply(global);
-require('../../Source/mootools-more').apply(global);
+require('../../Libs/mootools-core').apply(global);
+require('../../Libs/mootools-more').apply(global);
 
 // Initialize
 var loader = require('./Helpers/Loader');
