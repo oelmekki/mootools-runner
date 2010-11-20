@@ -14,6 +14,7 @@ for (var k in window){
 
 global.window = global;
 global.XMLHttpRequest = require('./XMLHttpRequest/XMLHttpRequest').XMLHttpRequest;
+window.location.href = 'http://test.com/';
 
 
 var options = require('./Helpers/RunnerOptions').parseOptions(process.argv[2]);
