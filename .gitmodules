@@ -10,3 +10,6 @@
 [submodule "XMLHttpRequest"]
 	path = XMLHttpRequest
 	url = https://github.com/driverdan/node-XMLHttpRequest.git
+[submodule "Jasmine-Node"]
+	path = Jasmine-Node
+	url = git://github.com/oelmekki/jasmine-node.git
